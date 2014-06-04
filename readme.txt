@@ -35,10 +35,8 @@ Here is the list of settings available:
 
     *UIKIT can be added in 3 styles:*  
     
-     * Gradient: Using CSS3 gradients and new state of the art codes to keep with modern standards  
-    
+     * Gradient: Using CSS3 gradients and new state of the art codes to keep with modern standards     
      * Almost Flat: Using mixture of flat and CSS3 stuff  
-    
      * Flat: No use of new CSS3 features, good for websites that want to support old browsers  
     
 
@@ -59,24 +57,15 @@ Here is the list of settings available:
 
     **Please use links below for more information about each addon:**
 
-    * [Autocomplete](http://www.getuikit.com/docs/addons_autocomplete.html "Autocomplete")
-    
+    * [Autocomplete](http://www.getuikit.com/docs/addons_autocomplete.html "Autocomplete")   
     * [Datepicker](http://www.getuikit.com/docs/addons_datepicker.html "Datepicker")
-    
     * [Form Password](http://www.getuikit.com/docs/addons_form-password.html "Form Password")
-    
     * [Markdown Area](http://www.getuikit.com/docs/addons_markdownarea.html "Markdown Area")
-    
     * [Notify](http://www.getuikit.com/docs/addons_notify.html "Notify")
-    
     * [Search](http://www.getuikit.com/docs/addons_search.html "Search")
-    
     * [Sortable](http://www.getuikit.com/docs/addons_sortable.html "Sortable")
-    
     * [Sticky](http://www.getuikit.com/docs/addons_sticky.html "Sticky")
-    
     * [Timepicker](http://www.getuikit.com/docs/addons_timepicker.html "Timepicker")
-    
     * [Upload](http://www.getuikit.com/docs/addons_upload.html "Upload")
 
     *Please be advised that if you are already using WARP enabled Yootheme, theme you don't need this plugin as UIKIT is already integrated for you*
