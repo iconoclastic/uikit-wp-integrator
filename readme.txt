@@ -17,61 +17,69 @@ Wordpress plugin for integrating UIKIT front-end framework from yootheme.com
 
 == Description ==
 
+General Information       
+-------------------
+
 **UIKIT WP Integrator** is a plugin for integrating [UIKIT](http://getuikit.com/ "UIKIT") front-end framework from [YOOTHEME](http://yootheme.com/ "Yootheme").
 
 The plugin adds a menu item under *Settings* in Dashbpard called **UIKIT Integrator** which enables you to configure how you want the UIKIT framework integrated into your website front-end.
 
 Here is the list of settings available:
+---------------------------------------
 
-* Please select the style of UIKIT you want to integrate
+* **Please select the style of UIKIT you want to integrate**
 
-- Gradient
-- Almost Flat
-- Flat 
+    1. Gradient
+    2. Almost Flat
+    3. Flat 
 
-UIKIT can be added in 3 styles:
-Gradient: Using CSS3 gradients and new state of the art codes to keep with modern standards
-Almost Flat: Using mixture of flat and CSS3 stuff
-Flat: No use of new CSS3 features, good for websites that want to support old browsers
+    *UIKIT can be added in 3 styles:*  
+    
+     * Gradient: Using CSS3 gradients and new state of the art codes to keep with modern standards  
+    
+     * Almost Flat: Using mixture of flat and CSS3 stuff  
+    
+     * Flat: No use of new CSS3 features, good for websites that want to support old browsers  
+    
 
-* Please select the desired addon you want to enable
+* **Please select the desired addon you want to enable**
 
-- Autocomplete
-- Datepicker
-- Form Password
-- Markdown Area
-- Notify
-- Search
-- Sortable
-- Sticky
-- Timepicker
-- Upload
+    1. Autocomplete
+    2. Datepicker
+    3. Form Password
+    4. Markdown Area
+    5. Notify
+    6. Search
+    7. Sortable
+    8. Sticky
+    9. Timepicker
+    10. Upload
 
-For more information about Addons please visit: [UIKIT ADDONS](http://www.getuikit.com/docs/addons.html "UIKIT ADDONS")
+    *For more information about Addons please visit: [UIKIT ADDONS](http://www.getuikit.com/docs/addons.html "UIKIT ADDONS")*
 
-Please use links below for more information about each addon:
+    **Please use links below for more information about each addon:**
 
-[Autocomplete](http://www.getuikit.com/docs/addons_autocomplete.html "Autocomplete")
+    * [Autocomplete](http://www.getuikit.com/docs/addons_autocomplete.html "Autocomplete")
+    
+    * [Datepicker](http://www.getuikit.com/docs/addons_datepicker.html "Datepicker")
+    
+    * [Form Password](http://www.getuikit.com/docs/addons_form-password.html "Form Password")
+    
+    * [Markdown Area](http://www.getuikit.com/docs/addons_markdownarea.html "Markdown Area")
+    
+    * [Notify](http://www.getuikit.com/docs/addons_notify.html "Notify")
+    
+    * [Search](http://www.getuikit.com/docs/addons_search.html "Search")
+    
+    * [Sortable](http://www.getuikit.com/docs/addons_sortable.html "Sortable")
+    
+    * [Sticky](http://www.getuikit.com/docs/addons_sticky.html "Sticky")
+    
+    * [Timepicker](http://www.getuikit.com/docs/addons_timepicker.html "Timepicker")
+    
+    * [Upload](http://www.getuikit.com/docs/addons_upload.html "Upload")
 
-[Datepicker](http://www.getuikit.com/docs/addons_datepicker.html "Datepicker")
-
-[Form Password](http://www.getuikit.com/docs/addons_form-password.html "Form Password")
-
-[Markdown Area](http://www.getuikit.com/docs/addons_markdownarea.html "Markdown Area")
-
-[Notify](http://www.getuikit.com/docs/addons_notify.html "Notify")
-
-[Search](http://www.getuikit.com/docs/addons_search.html "Search")
-
-[Sortable](http://www.getuikit.com/docs/addons_sortable.html "Sortable")
-
-[Sticky](http://www.getuikit.com/docs/addons_sticky.html "Sticky")
-
-[Timepicker](http://www.getuikit.com/docs/addons_timepicker.html "Timepicker")
-
-[Upload](http://www.getuikit.com/docs/addons_upload.html "Upload")
-
-*Please be advised that if you are already using WARP enabled Yootheme, theme you don't need this plugin as UIKIT is already integrated for you*
+    *Please be advised that if you are already using WARP enabled Yootheme, theme you don't need this plugin as UIKIT is already integrated for you*
 
 == Installation ==
 
