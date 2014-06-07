@@ -17,15 +17,15 @@ Wordpress plugin for integrating UIKIT front-end framework from yootheme.com
 
 == Description ==
 
-General Information       
--------------------
+<h3>General Information</h3>
 
 **UIKIT WP Integrator** is a plugin for integrating [UIKIT](http://getuikit.com/ "UIKIT") front-end framework from [YOOTHEME](http://yootheme.com/ "Yootheme").
 
-The plugin adds a menu item under *Settings* in Dashbpard called **UIKIT Integrator** which enables you to configure how you want the UIKIT framework integrated into your website front-end.
+The plugin adds a menu item under *Settings* in Dashbpard called **UIKIT Integrator** which enables you to configure how you want the UIKIT framework integrated into your website front-end.  
 
-Here is the list of settings available:
----------------------------------------
+**`UIKIT WP Intergrator` currently is using `UIKIT` version `2.6.0`**
+
+<h3>Here is the list of settings available:</h3>
 
 * **Please select the style of UIKIT you want to integrate**
 
