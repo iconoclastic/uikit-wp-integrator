@@ -8,8 +8,8 @@ Author:              Christopher Amirian
 Donate Link:         https://github.com/iconoclastic
 Requires at least:   3.9
 Tested up to:        3.9.1
-Stable tag:          1.0.0
-Version:             1.0.0
+Stable tag:          1.1.0
+Version:             1.1.0
 License:             GPLv2 or later
 License URI:         http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ Wordpress plugin for integrating UIKIT front-end framework from yootheme.com
 
 The plugin adds a menu item under *Settings* in Dashbpard called **UIKIT Integrator** which enables you to configure how you want the UIKIT framework integrated into your website front-end.  
 
-**`UIKIT WP Intergrator` currently is using `UIKIT` version `2.6.0`**
+**`UIKIT WP Intergrator` currently is using `UIKIT` version `2.7.1`**
 
 <h3>Here is the list of settings available:</h3>
 
@@ -45,13 +45,16 @@ The plugin adds a menu item under *Settings* in Dashbpard called **UIKIT Integra
     1. Autocomplete
     2. Datepicker
     3. Form Password
-    4. Markdown Area
-    5. Notify
-    6. Search
-    7. Sortable
-    8. Sticky
-    9. Timepicker
-    10. Upload
+    4. Form Select
+    5. HTML Editor
+    6. Nestable
+    7. Notify
+    8. Pagination
+    9. Search
+    10. Sortable
+    11. Sticky
+    12. Timepicker
+    13. Upload
 
     *For more information about Addons please visit: [UIKIT ADDONS](http://www.getuikit.com/docs/addons.html "UIKIT ADDONS")*
 
@@ -60,8 +63,11 @@ The plugin adds a menu item under *Settings* in Dashbpard called **UIKIT Integra
     * [Autocomplete](http://www.getuikit.com/docs/addons_autocomplete.html "Autocomplete")   
     * [Datepicker](http://www.getuikit.com/docs/addons_datepicker.html "Datepicker")
     * [Form Password](http://www.getuikit.com/docs/addons_form-password.html "Form Password")
-    * [Markdown Area](http://www.getuikit.com/docs/addons_markdownarea.html "Markdown Area")
+    * [Form Select](http://www.getuikit.com/docs/addons_form-select.html "Form Select")
+    * [HTML Editor](http://www.getuikit.com/docs/addons_htmleditor.html "HTML Editor")
+    * [Nestable](http://www.getuikit.com/docs/addons_nestable.html "Nestable")
     * [Notify](http://www.getuikit.com/docs/addons_notify.html "Notify")
+    * [Pagination](http://www.getuikit.com/docs/addons_pagination.html "Pagination")
     * [Search](http://www.getuikit.com/docs/addons_search.html "Search")
     * [Sortable](http://www.getuikit.com/docs/addons_sortable.html "Sortable")
     * [Sticky](http://www.getuikit.com/docs/addons_sticky.html "Sticky")
@@ -134,7 +140,10 @@ Add this code inside `functions.php` of your theme:
 
 == Changelog ==
 
-There is no Changelog available yet.
+= 1.1.0 =
+
+* Integrates UIKIT Version 2.7.0
+* **WARNING:** UIKIT version 2.7.0 has some code changes that may break if you want to update from 2.6.0. Please visit [THIS LINK](http://www.yootheme.com/blog/2014/06/10/uikit-27-released "UIKIT 2.7.0 Release Notes") for more information 
 
 == Upgrade Notice ==
 

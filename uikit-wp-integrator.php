@@ -3,7 +3,7 @@
 Plugin Name: UIKIT WP Integrator
 Plugin URI: https://github.com/iconoclastic/uikit-wordpress-integrator
 Description: This plugin integrates UIKIT front-end framework of Yootheme.com into Wordpress
-Version: 1.0.0
+Version: 1.1.0
 Author: Christopher Amirian
 Author URI: https://github.com/iconoclastic
 License: GPL2
@@ -34,10 +34,6 @@ function uk_wp_integrator_options() {
 			    	$style_chooser = get_option('style-chooser');
 			    	if (empty($style_chooser)) {
 			    		$style_chooser = '0';
-			    	}
-			    	$the_gui = get_option('the-gui');
-			    	if (empty($the_gui)) {
-			    		$the_gui = '11';
 			    	}
 			    ?>
 			    <table class="form-table">
@@ -88,18 +84,30 @@ function uk_wp_integrator_options() {
 			        				<input id="addons-form-password" name="form-password" type="checkbox" value="2" <?php checked('2', get_option('form-password')); ?> />
 			        				<span>Form Password</span>
 			        			</label><br>
-			        			<label for="markdownarea">
-			        				<input id="addons-markdownarea" name="markdownarea" type="checkbox" value="3" <?php checked('3', get_option('markdownarea')); ?> />
-			        				<span>Markdown Area</span>
+			        			<label for="form-select">
+			        				<input id="addons-form-select" name="form-select" type="checkbox" value="11" <?php checked('11', get_option('form-select')); ?> />
+			        				<span>Form Select</span>
+			        			</label><br>			        			
+			        			<label for="htmleditor">
+			        				<input id="addons-htmleditor" name="htmleditor" type="checkbox" value="3" <?php checked('3', get_option('htmleditor')); ?> />
+			        				<span>HTML Editor</span>
 			        			</label><br>
+			        			<label for="nestable">
+			        				<input id="addons-nestable" name="nestable" type="checkbox" value="12" <?php checked('12', get_option('nestable')); ?> />
+			        				<span>Nestable</span>
+			        			</label><br>			        			
 			        			<label for="notify">
 			        				<input id="addons-notify" name="notify" type="checkbox" value="4" <?php checked('4', get_option('notify')); ?> />
 			        				<span>Notify</span>
 			        			</label><br>
+			        			<label for="pagination">
+			        				<input id="addons-pagination" name="pagination" type="checkbox" value="13" <?php checked('13', get_option('pagination')); ?> />
+			        				<span>Pagination</span>
+			        			</label><br>			        			
 			        			<label for="search">
 			        				<input id="addons-search" name="search" type="checkbox" value="5" <?php checked('5', get_option('search')); ?> />
 			        				<span>Search</span>
-			        			</label><br>
+			        			</label><br>			        			
 			        			<label for="sortable">
 			        				<input id="addons-sortable" name="sortable" type="checkbox" value="6" <?php checked('6', get_option('sortable')); ?> />
 			        				<span>Sortable</span>
@@ -126,8 +134,11 @@ function uk_wp_integrator_options() {
 			        			<li><small><a href="http://www.getuikit.com/docs/addons_autocomplete.html" target="_blank">Autocomplete</a></small></li>
 			        			<li><small><a href="http://www.getuikit.com/docs/addons_datepicker.html" target="_blank">Datepicker</a></small></li>
 			        			<li><small><a href="http://www.getuikit.com/docs/addons_form-password.html" target="_blank">Form Password</a></small></li>
-			        			<li><small><a href="http://www.getuikit.com/docs/addons_markdownarea.html" target="_blank">Markdown Area</a></small></li>
-			        			<li><small><a href="http://www.getuikit.com/docs/addons_notify.html" target="_blank">Notify</a></small></li>
+			        			<li><small><a href="http://www.getuikit.com/docs/addons_form-select.html" target="_blank">Form Select</a></small></li>			        			
+			        			<li><small><a href="http://getuikit.com/docs/addons_htmleditor.html" target="_blank">HTML Editor</a></small></li>
+			        			<li><small><a href="http://getuikit.com/docs/addons_nestable.html" target="_blank">Nestable</a></small></li>			        			
+			        			<li><small><a href="http://www.getuikit.com/docs/addons_notify.html" target="_blank">Notify</a></small></li>		
+			        			<li><small><a href="http://getuikit.com/docs/addons_pagination.html" target="_blank">Pagination</a></small></li>				        				        			
 			        			<li><small><a href="http://www.getuikit.com/docs/addons_search.html" target="_blank">Search</a></small></li>
 			        			<li><small><a href="http://www.getuikit.com/docs/addons_sortable.html" target="_blank">Sortable</a></small></li>
 			        			<li><small><a href="http://www.getuikit.com/docs/addons_sticky.html" target="_blank">Sticky</a></small></li>
@@ -151,8 +162,11 @@ function uk_wp_integrator_init() {
 	register_setting('uk-wp-integrator-group', 'autocomplete');
 	register_setting('uk-wp-integrator-group', 'datepicker');
 	register_setting('uk-wp-integrator-group', 'form-password');
-	register_setting('uk-wp-integrator-group', 'markdownarea');
+	register_setting('uk-wp-integrator-group', 'form-select');	
+	register_setting('uk-wp-integrator-group', 'htmleditor');
+	register_setting('uk-wp-integrator-group', 'nestable');	
 	register_setting('uk-wp-integrator-group', 'notify');
+	register_setting('uk-wp-integrator-group', 'pagination');	
 	register_setting('uk-wp-integrator-group', 'search');
 	register_setting('uk-wp-integrator-group', 'sortable');
 	register_setting('uk-wp-integrator-group', 'sticky');
@@ -166,104 +180,120 @@ add_action('admin_enqueue_scripts', 'uk_wp_integrator_script_admin');
 
 function uk_wp_integrator_script() {
 
-	if (get_option('the-gui') != 13) {
-		$uikit_version = '2.6.0';
-		$style_chooser = get_option('style-chooser');
-		$autocomplete = get_option('autocomplete');
-		$datepicker = get_option('datepicker');
-		$form_password = get_option('form-password');
-		$markdownarea = get_option('markdownarea');
-		$notify = get_option('notify');
-		$search = get_option('search');
-		$sortable = get_option('sortable');
-		$sticky = get_option('sticky');
-		$timepicker = get_option('timepicker');
-		$upload = get_option('upload');
-		switch ($style_chooser) {
-			case '2':
-				$the_style_chooser = 'uikit.min.css';
-				break;
-			case '1':
-				$the_style_chooser = 'uikit.almost-flat.min.css';
-				break;		
-			default:
-				$the_style_chooser = 'uikit.gradient.min.css';
-				break;
-		}
+	$uikit_version = '2.7.0';
+	$style_chooser = get_option('style-chooser');
+	$autocomplete = get_option('autocomplete');
+	$datepicker = get_option('datepicker');
+	$form_password = get_option('form-password');
+	$form_select = get_option('form-select');
+	$htmleditor = get_option('htmleditor');
+	$nestable = get_option('nestable');
+	$notify = get_option('notify');
+	$pagination = get_option('pagination');
+	$search = get_option('search');
+	$sortable = get_option('sortable');
+	$sticky = get_option('sticky');
+	$timepicker = get_option('timepicker');
+	$upload = get_option('upload');
+	switch ($style_chooser) {
+		case '2':
+			$the_style_chooser = 'uikit.min.css';
+			break;
+		case '1':
+			$the_style_chooser = 'uikit.almost-flat.min.css';
+			break;		
+		default:
+			$the_style_chooser = 'uikit.gradient.min.css';
+			break;
+	}
 
-		wp_register_style('uk-wp-css', plugins_url('uikit/css/'.$the_style_chooser, __FILE__), '', $uikit_version ,'all');
-		wp_enqueue_style('uk-wp-css');
+	wp_register_style('uk-wp-css', plugins_url('uikit/css/'.$the_style_chooser, __FILE__), '', $uikit_version ,'all');
+	wp_enqueue_style('uk-wp-css');
 
-		wp_register_script('uk-wp-main', plugins_url('uikit/js/uikit.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-		wp_enqueue_script('uk-wp-main');
+	wp_register_script('uk-wp-main', plugins_url('uikit/js/uikit.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+	wp_enqueue_script('uk-wp-main');
 
-		if (
-				!empty($autocomplete) ||
-				!empty($datepicker) ||
-				!empty($form_password) ||
-				!empty($markdownarea) ||
-				!empty($notify) ||
-				!empty($search) ||
-				!empty($sortable) ||
-				!empty($sticky) ||
-				!empty($timepicker) ||
-				!empty($upload)
-		   ) {
-				switch ($style_chooser) {
-					case '2':
-						$the_style_addon = 'uikit.addons.min.css';
-						break;
-					case '1':
-						$the_style_addon = 'uikit.almost-flat.addons.min.css';
-						break;		
-					default:
-						$the_style_addon = 'uikit.gradient.addons.min.css';
-						break;
-				}	   	
-				wp_register_style('uk-wp-addons', plugins_url('uikit/css/addons/'.$the_style_addon, __FILE__), '', $uikit_version ,'all');
-				wp_enqueue_style('uk-wp-addons');		
-		}
+	if (
+			!empty($autocomplete) ||
+			!empty($datepicker) ||
+			!empty($form_password) ||
+			!empty($form_select) ||
+			!empty($htmleditor) ||
+			!empty($nestable) ||
+			!empty($notify) ||
+			!empty($pagination) ||
+			!empty($search) ||
+			!empty($sortable) ||
+			!empty($sticky) ||
+			!empty($timepicker) ||
+			!empty($upload)
+	   ) {
+			switch ($style_chooser) {
+				case '2':
+					$the_style_addon = 'uikit.addons.min.css';
+					break;
+				case '1':
+					$the_style_addon = 'uikit.almost-flat.addons.min.css';
+					break;		
+				default:
+					$the_style_addon = 'uikit.gradient.addons.min.css';
+					break;
+			}	   	
+			wp_register_style('uk-wp-addons', plugins_url('uikit/css/addons/'.$the_style_addon, __FILE__), '', $uikit_version ,'all');
+			wp_enqueue_style('uk-wp-addons');		
+	}
 
-		if (!empty($autocomplete)) {
-			wp_register_script('uk-wp-autocomplete', plugins_url('uikit/js/addons/autocomplete.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-autocomplete');
-		}
-		if (!empty($datepicker)) {
-			wp_register_script('uk-wp-datepicker', plugins_url('uikit/js/addons/datepicker.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-datepicker');
-		}
-		if (!empty($form_password)) {
-			wp_register_script('uk-wp-form-password', plugins_url('uikit/js/addons/form-password.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-form-password');
-		}
-		if (!empty($markdownarea)) {
-			wp_register_script('uk-wp-markdownarea', plugins_url('uikit/js/addons/markdownarea.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-markdownarea');
-		}
-		if (!empty($notify)) {
-			wp_register_script('uk-wp-notify', plugins_url('uikit/js/addons/notify.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-notify');
-		}	
-		if (!empty($search)) {
-			wp_register_script('uk-wp-search', plugins_url('uikit/js/addons/search.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-search');
-		}	
-		if (!empty($sortable)) {
-			wp_register_script('uk-wp-sortable', plugins_url('uikit/js/addons/sortable.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-sortable');
-		}	
-		if (!empty($sticky)) {
-			wp_register_script('uk-wp-sticky', plugins_url('uikit/js/addons/sticky.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-sticky');
-		}
-		if (!empty($timepicker)) {
-			wp_register_script('uk-wp-timepicker', plugins_url('uikit/js/addons/timepicker.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-timepicker');
-		}	
-		if (!empty($upload)) {
-			wp_register_script('uk-wp-upload', plugins_url('uikit/js/addons/upload.min.js', __FILE__), array('jquery'), $uikit_version ,false);
-			wp_enqueue_script('uk-wp-upload');
-		}
+	if (!empty($autocomplete)) {
+		wp_register_script('uk-wp-autocomplete', plugins_url('uikit/js/addons/autocomplete.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-autocomplete');
+	}
+	if (!empty($datepicker)) {
+		wp_register_script('uk-wp-datepicker', plugins_url('uikit/js/addons/datepicker.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-datepicker');
+	}
+	if (!empty($form_password)) {
+		wp_register_script('uk-wp-form-password', plugins_url('uikit/js/addons/form-password.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-form-password');
+	}
+	if (!empty($form_select)) {
+		wp_register_script('uk-wp-form-select', plugins_url('uikit/js/addons/form-select.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-form-select');
+	}	
+	if (!empty($htmleditor)) {
+		wp_register_script('uk-wp-htmleditor', plugins_url('uikit/js/addons/htmleditor.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-htmleditor');
+	}
+	if (!empty($nestable)) {
+		wp_register_script('uk-wp-nestable', plugins_url('uikit/js/addons/nestable.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-nestable');
+	}	
+	if (!empty($notify)) {
+		wp_register_script('uk-wp-notify', plugins_url('uikit/js/addons/notify.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-notify');
+	}	
+	if (!empty($pagination)) {
+		wp_register_script('uk-wp-pagination', plugins_url('uikit/js/addons/pagination.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-pagination');
+	}	
+	if (!empty($search)) {
+		wp_register_script('uk-wp-search', plugins_url('uikit/js/addons/search.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-search');
+	}	
+	if (!empty($sortable)) {
+		wp_register_script('uk-wp-sortable', plugins_url('uikit/js/addons/sortable.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-sortable');
+	}	
+	if (!empty($sticky)) {
+		wp_register_script('uk-wp-sticky', plugins_url('uikit/js/addons/sticky.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-sticky');
+	}
+	if (!empty($timepicker)) {
+		wp_register_script('uk-wp-timepicker', plugins_url('uikit/js/addons/timepicker.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-timepicker');
+	}	
+	if (!empty($upload)) {
+		wp_register_script('uk-wp-upload', plugins_url('uikit/js/addons/upload.min.js', __FILE__), array('jquery'), $uikit_version ,false);
+		wp_enqueue_script('uk-wp-upload');
 	}
 					
 }
