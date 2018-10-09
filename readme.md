@@ -1,4 +1,4 @@
-=== Plugin Name ===
+## Plugin Name
 Contributors:        christopher.amirian
 Plugin Name:         UIKIT WP Integrator
 Plugin URI:          https://github.com/iconoclastic/uikit-wordpress-integrator
@@ -15,7 +15,7 @@ License URI:         http://www.gnu.org/licenses/gpl-2.0.html
 
 Wordpress plugin for integrating UIKIT front-end framework from yootheme.com 
 
-== Description ==
+## Description
 
 <h3>General Information</h3>
 
@@ -76,7 +76,7 @@ The plugin adds a menu item under *Settings* in Dashbpard called **UIKIT Integra
 
     *Please be advised that if you are already using WARP enabled Yootheme, theme you don't need this plugin as UIKIT is already integrated for you*
 
-== Installation ==
+## Installation
 
 To install UIKIT WP Integrator plugin follow this steps:
 
@@ -138,17 +138,17 @@ Add this code inside `functions.php` of your theme:
 	    }
 	}	
 
-== Changelog ==
+## Changelog
 
-= 1.1.0 =
+### 1.1.0
 
 * Integrates UIKIT Version 2.7.0
 * **WARNING:** UIKIT version 2.7.0 has some code changes that may break if you want to update from 2.6.0. Please visit [THIS LINK](http://www.yootheme.com/blog/2014/06/10/uikit-27-released "UIKIT 2.7.0 Release Notes") for more information 
 
-== Upgrade Notice ==
+### Upgrade Notice
 
 There is no update notice available yet.
 
-== Screenshots ==
+### Screenshots ==
 
 1. Here's a screenshot of settings page
