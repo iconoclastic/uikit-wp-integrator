@@ -1,16 +1,28 @@
 ## Plugin Name
 Contributors:        christopher.amirian
+
 Plugin Name:         UIKIT WP Integrator
+
 Plugin URI:          https://github.com/iconoclastic/uikit-wordpress-integrator
+
 Tags:                uikit, yootheme, integrate, embed, front-end, framework, Wordpress
+
 Author URI:        	 https://github.com/iconoclastic
+
 Author:              Christopher Amirian
+
 Donate Link:         https://github.com/iconoclastic
+
 Requires at least:   3.9
+
 Tested up to:        3.9.1
+
 Stable tag:          1.1.0
+
 Version:             1.1.0
+
 License:             GPLv2 or later
+
 License URI:         http://www.gnu.org/licenses/gpl-2.0.html
 
 Wordpress plugin for integrating UIKIT front-end framework from yootheme.com 
